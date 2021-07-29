@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>响应原理</title>
+</head>
+
+<body>
+  <script>
+    let person = {
+      name: '张三',
+      age: 18
+    }
+    // vue2响应原理
+    // #region
+    /* let p = {}
+    Object.defineProperty(p,'name',{
+      configurable:true,
+      get(){
+        return person.name
+      },
+      set(value){
+        console.log('有人修改了name属性，页面要刷新了~')
+        person.name = value
+      }
+    })
+    Object.defineProperty(p,'age',{
+      get(){
+        return person.age
+      },
+      set(value){
+        console.log('有人修改了age属性，页面要刷新了~')
+        person.age = value
+      }
+    }) */
+    //#endregion
+
+    // vue3响应原理
+    //#region 
+    const p = new Proxy(person,{
+      get(target,propName){//读取属性时调用
+        console.log(`有人读取了p身上的${propName}属性`)
+        return Reflect.get(target.propName)
+      },
+      set(target,propName,value){//修改或增加属性时调用
+        console.log(`有人修改了p身上的${propName}属性，我要去更新页面了~`)
+        Reflect.set(target,propName,value)
+      },
+      deleteProperty(target,propName){//删除属性时调用
+        console.log(`有人删除了p身上的${propName}属性，我要去更新页面了~`)
+        return Reflect.deleteProperty(target,propName)
+      }
+    })
+    //#endregion
+    //#region 
+    let obj = { a: 1, b: 2 }
+    // 通过Object.defineProperty操作
+    /* try {
+      Object.defineProperty(obj, 'c', {
+        get() {
+          return 3
+        }
+      })
+      Object.defineProperty(obj, 'c', {
+        get() {
+          return 4
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    } */
+
+    // 通过Reflect.defineProperty操作
+    /* const x1 = Reflect.defineProperty(obj, 'c', {
+      get() {
+        return 3
+      }
+    })
+    const x2 = Reflect.defineProperty(obj, 'c', {
+      get() {
+        return 4
+      }
+    })
+    if (x2) {
+      console.log('操作成功~')
+    } else {
+      console.log('操作失败~')
+    } */
+    //#endregion
+  </script>
+</body>
+
+</html>

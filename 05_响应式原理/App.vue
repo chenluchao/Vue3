@@ -13,6 +13,23 @@
 </template>
 
 <script>
+  /* 
+    响应原理
+      vue2.x的响应式
+        * 实现原理：通过Object.defineProperty()对属性的读取，修改进行拦截（数据劫持）
+        * 数据类型：通过写更新数组的一系列方法来实现拦截。（对数组的变更方法进行了包裹）
+          Object.defineProperty(data,'count',{
+            get(){},
+            set(){}
+          })
+        存在问题：
+          新增属性，删除属性，界面不更新
+          直接通过下标修改数组，界面不会自动更新
+      Vue3的响应式
+        * 实现原理：
+          通过Proxy（代理）：拦截对象中任意属性的变化，包括：属性值的读写，属性的添加。属性的删除等
+          通过Reflect(反射)：对呗代理对象的属性进行操作
+  */
 import { reactive } from "vue";
 export default {
   name: "App",
