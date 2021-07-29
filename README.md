@@ -6,3 +6,5 @@
 * App.vue
 ## 03ref(引用实现对象)
 * App.vue
+## 04reactive
+* App.vue
