@@ -19,3 +19,5 @@
 * Demo.vue
 ## watch监听
 * Demo.vue
+## watchEffect
+* Demo.vue
