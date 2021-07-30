@@ -17,3 +17,5 @@
 ## 07计算属性
 * App.vue
 * Demo.vue
+## watch监听
+* Demo.vue
