@@ -11,3 +11,6 @@
 ## 05响应式原理
 * App.vue
 * 响应原理.html
+## 06setup两个注意点
+* App.vue
+* Demo.vue

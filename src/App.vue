@@ -1,52 +1,20 @@
 <template>
-  <!-- 组件中的模板结构可以没有根标签 -->
   <h1>个人信息</h1>
   <h2>姓名：{{person.name}}</h2>
-  <h2 v-show="person.age">年龄：{{person.age}}</h2>
-  <h2 v-show="person.sex">性别：{{person.sex}}</h2>
-  <h2>工作种类：{{person.job.type}}</h2>
-  <h2>薪水：{{person.job.salary}}</h2>
-  <h2>爱好：{{person.hobby}}</h2>
-  <button @click="changeInfo">修改人的信息</button>
-  <button @click="addSex">添加一个属性</button>
-  <button @click="deleteAge">删除一个属性</button>
+  <h2>年龄：{{person.age}}</h2>
 </template>
 
 <script>
 import { reactive } from "vue";
 export default {
   name: "App",
-  // 此处仅测试setup，暂时不考虑响应式
   setup() {
     let person = reactive({
       name: "张三",
       age: 18,
-      job: {
-        type: "前端工程师",
-        salary: "30K",
-      },
-      hobby: ["抽烟", "喝酒", "烫头"],
     });
-    function changeInfo() {
-      person.name = "李四";
-      person.age = 20;
-      person.job = {
-        type: "UI工程师",
-        salary: "40K",
-      };
-      person.hobby[0] = "学习";
-    }
-    function addSex(){
-      person.sex = '男'
-    }
-    function deleteAge(){
-      delete person.age
-    }
     return {
       person,
-      changeInfo,
-      addSex,
-      deleteAge
     };
   },
 };
