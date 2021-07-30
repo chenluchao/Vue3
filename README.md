@@ -17,7 +17,10 @@
 ## 07计算属性
 * App.vue
 * Demo.vue
-## watch监听
+## 08watch监听
 * Demo.vue
-## watchEffect
+## 09watchEffect
+* Demo.vue
+## 10声明周期
+* App.vue
 * Demo.vue
