@@ -14,3 +14,6 @@
 ## 06setup两个注意点
 * App.vue
 * Demo.vue
+## 07计算属性
+* App.vue
+* Demo.vue
