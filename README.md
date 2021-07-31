@@ -24,3 +24,6 @@
 ## 10声明周期
 * App.vue
 * Demo.vue
+## 11Hooks
+* Demo.vue
+* Hooks/usePoint.js
