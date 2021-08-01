@@ -45,3 +45,6 @@
 * App.vue
 * Child.vue
 * Son.vue
+## 19_Suspense
+* App.vue
+* Child.vue
